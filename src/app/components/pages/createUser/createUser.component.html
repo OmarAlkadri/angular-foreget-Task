@@ -1,0 +1,103 @@
+<div class="container" [formGroup]="shipmentForm">
+  <mat-card class="card">
+    <mat-card-header style="color: rgb(214, 21, 21)">
+      <mat-card-title>Add User</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-grid-list cols="3" rowHeight="150">
+        <mat-grid-tile colspan="1">
+          <mat-form-field
+            appearance="fill"
+            [class.mat-form-field-invalid]="
+              getFormItem('nameControl').invalid &&
+              (getFormItem('nameControl').dirty ||
+                getFormItem('nameControl').touched)
+            "
+          >
+            <mat-label>Enter your Name</mat-label>
+            <input
+              matInput
+              placeholder="Ahmet"
+              required
+              formControlName="nameControl"
+            />
+
+            <mat-error *ngIf="getFormItem('nameControl').hasError('required')">
+              This field is required.
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="1">
+          <mat-form-field
+            appearance="fill"
+            [class.mat-form-field-invalid]="
+              getFormItem('nameControl').invalid &&
+              (getFormItem('nameControl').dirty ||
+                getFormItem('nameControl').touched)
+            "
+          >
+            <mat-label>Enter your email</mat-label>
+            <input
+              matInput
+              placeholder="ahmet@example.com"
+              formControlName="emailControl"
+              required
+            />
+
+            <mat-error *ngIf="getFormItem('nameControl').hasError('required')">
+              This field is required.
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="1">
+          <mat-form-field
+            appearance="fill"
+            [class.mat-form-field-invalid]="
+              getFormItem('passControl').invalid &&
+              (getFormItem('passControl').dirty ||
+                getFormItem('passControl').touched)
+            "
+          >
+            <mat-label>Enter your password</mat-label>
+            <input
+              matInput
+              formControlName="passControl"
+              [type]="hide ? 'password' : 'text'"
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="hide = !hide"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide"
+            >
+              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+
+            <mat-error *ngIf="getFormItem('passControl').hasError('required')">
+              This field is required.
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-card-content>
+
+    <mat-card-actions class="actionButton">
+      <button
+        mat-stroked-button
+        (click)="onSave()"
+        color="primary"
+        style="margin-right: 25px"
+      >
+        Save
+      </button>
+
+      <button mat-stroked-button (click)="onCancel()" color="warn">
+        Cancel
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

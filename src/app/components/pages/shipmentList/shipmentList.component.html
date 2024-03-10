@@ -1,0 +1,93 @@
+<div class="container">
+  <mat-card class="card">
+    <mat-card-header style="color: rgb(214, 21, 21)">
+      <mat-card-title>Add Shipment</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <ejs-grid
+        [dataSource]="data"
+        [editSettings]="editSettings"
+        [toolbar]="toolbar"
+        (toolbarClick)="clickHandler($event)"
+        [allowPaging]="true"
+        [allowSorting]="true"
+        [allowExcelExport]="true"
+        [allowTextWrap]="true"
+        [contextMenuItems]="contextMenuItems"
+        [allowFiltering]="true"
+        [pageSettings]="pageOptions"
+      >
+        <e-columns>
+          <e-column
+            field="ModeName"
+            headerText="Mode"
+            textAlign="center"
+          ></e-column>
+          <e-column
+            field="movementTypeName"
+            headerText="Movement Type"
+            textAlign="center"
+          ></e-column>
+          <e-column
+            field="incotermName"
+            headerText="Incoterm"
+            textAlign="center"
+          ></e-column>
+          <e-column
+            field="Country"
+            headerText="Country"
+            textAlign="center"
+          ></e-column>
+          <e-column
+            field="City"
+            headerText="City"
+            textAlign="center"
+          ></e-column>
+          <e-column
+            field="packageTypeName"
+            headerText="Package Type"
+            textAlign="center"
+          ></e-column>
+          <e-column
+            field="unitFirstName"
+            headerText="Unit First"
+            textAlign="center"
+          ></e-column>
+          <e-column
+            field="secondUnitName"
+            headerText="Second Unit"
+            textAlign="center"
+          ></e-column>
+          <e-column
+            field="currencyName"
+            headerText="Currency"
+            textAlign="center"
+          ></e-column>
+          <e-column headerText="Functions" textAlign="center">
+            <ng-template #template let-data>
+              <div style="display: flex; justify-content: center">
+                <button
+                  (click)="deleteShipmentItem(data.id)"
+                  mat-icon-button
+                  class="example-icon delete-icon"
+                  aria-label="Example icon-button with heart icon"
+                >
+                  <mat-icon>delete</mat-icon>
+                </button>
+                <button
+                  (click)="EditShipmentItem(data)"
+                  mat-icon-button
+                  class="example-icon edite-icon"
+                  aria-label="Example icon-button with heart icon"
+                >
+                  <mat-icon>edite</mat-icon>
+                </button>
+              </div>
+            </ng-template>
+          </e-column>
+        </e-columns>
+      </ejs-grid>
+    </mat-card-content>
+  </mat-card>
+</div>

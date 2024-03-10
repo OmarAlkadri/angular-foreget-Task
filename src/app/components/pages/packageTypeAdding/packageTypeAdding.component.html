@@ -1,0 +1,46 @@
+<div class="container">
+  <mat-card class="card">
+    <mat-card-header style="color: rgb(214, 21, 21); margin-bottom: 15px">
+      <mat-card-title>Add Package Type</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-grid-list cols="2" rowHeight="4:1">
+        <mat-grid-tile>
+          <mat-form-field
+            appearance="fill"
+            [class.mat-form-field-invalid]="
+              nameControl.invalid && (nameControl.dirty || nameControl.touched)
+            "
+          >
+            <mat-label>Enter Name</mat-label>
+            <input
+              matInput
+              placeholder="name"
+              required
+              [formControl]="nameControl"
+            />
+
+            <mat-error *ngIf="nameControl.hasError('required')">
+              This field is required.
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-card-content>
+
+    <mat-card-actions class="actionButton">
+      <button
+        style="margin-right: 25px"
+        mat-stroked-button
+        (click)="onSave()"
+        color="primary"
+      >
+        Save
+      </button>
+      <button mat-stroked-button (click)="onCancel()" color="warn">
+        Cancel
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

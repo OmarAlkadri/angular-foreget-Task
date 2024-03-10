@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+
+.card {
+    width: 900px;
+}
+
+
+.actionButton {
+    display: flex;
+    justify-content: center;
+    margin-top: -25px;
+    margin-bottom: 10px;
+}
+
+
+.example-button-row button,
+.example-button-row a {
+    margin-right: 8px;
+}
+
+.example-disabled {
+    display: inline-block;
+}

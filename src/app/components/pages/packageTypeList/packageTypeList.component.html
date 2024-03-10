@@ -1,0 +1,53 @@
+<div class="container">
+  <mat-card class="card">
+    <mat-card-header style="color: rgb(214, 21, 21)">
+      <mat-card-title>Package Type List</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <ejs-grid
+        [dataSource]="data"
+        [editSettings]="editSettings"
+        [toolbar]="toolbar"
+        (toolbarClick)="clickHandler($event)"
+        [allowPaging]="true"
+        [allowSorting]="true"
+        [allowExcelExport]="true"
+        [allowTextWrap]="true"
+        [contextMenuItems]="contextMenuItems"
+        [allowFiltering]="true"
+        [pageSettings]="pageOptions"
+      >
+        <e-columns>
+          <e-column
+            field="Name"
+            headerText="Mode Name"
+            textAlign="center"
+          ></e-column>
+          <e-column headerText="Functions" textAlign="center">
+            <ng-template #template let-data>
+              <div style="display: flex; justify-content: center">
+                <button
+                  (click)="deleteItem(data.id)"
+                  mat-icon-button
+                  class="example-icon delete-icon"
+                  aria-label="Example icon-button with heart icon"
+                >
+                  <mat-icon>delete</mat-icon>
+                </button>
+                <button
+                  (click)="EditItem(data)"
+                  mat-icon-button
+                  class="example-icon edite-icon"
+                  aria-label="Example icon-button with heart icon"
+                >
+                  <mat-icon>edite</mat-icon>
+                </button>
+              </div>
+            </ng-template>
+          </e-column>
+        </e-columns>
+      </ejs-grid>
+    </mat-card-content>
+  </mat-card>
+</div>

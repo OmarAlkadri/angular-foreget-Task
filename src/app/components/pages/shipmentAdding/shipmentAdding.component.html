@@ -1,0 +1,253 @@
+<div class="container" [formGroup]="shipmentForm">
+  <mat-card class="card">
+    <mat-card-header style="color: rgb(214, 21, 21)">
+      <mat-card-title>Shipments List</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-grid-list cols="3" rowHeight="4:1">
+        <mat-grid-tile>
+          <mat-form-field
+            appearance="fill"
+            [class.mat-form-field-invalid]="
+              getFormItem('countriesCitiesControl').invalid &&
+              (getFormItem('countriesCitiesControl').dirty ||
+                getFormItem('countriesCitiesControl').touched)
+            "
+          >
+            <mat-label>Select a Countries and Cities</mat-label>
+
+            <mat-select required formControlName="countriesCitiesControl">
+              <mat-optgroup
+                *ngFor="let countriesCities of countriesCities"
+                [label]="countriesCities.Country"
+              >
+                <mat-option
+                  *ngFor="let city of countriesCities.Citiy"
+                  [value]="countriesCities.Country + ':' + city.value"
+                >
+                  {{ city.value }}
+                </mat-option>
+              </mat-optgroup>
+            </mat-select>
+            <mat-error
+              *ngIf="getFormItem('countriesCitiesControl').hasError('required')"
+            >
+              This field is required.
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field
+            appearance="fill"
+            [class.mat-form-field-invalid]="
+              getFormItem('modeControl').invalid &&
+              (getFormItem('modeControl').dirty ||
+                getFormItem('modeControl').touched)
+            "
+          >
+            <mat-label>Select a Mode</mat-label>
+            <mat-select required formControlName="modeControl" disableRipple>
+              <mat-option *ngFor="let item of mode" [value]="item.id">
+                {{ item.name }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="getFormItem('modeControl').hasError('required')">
+              This field is required.
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field
+            appearance="fill"
+            [class.mat-form-field-invalid]="
+              getFormItem('packageTypeControl').invalid &&
+              (getFormItem('packageTypeControl').dirty ||
+                getFormItem('packageTypeControl').touched)
+            "
+          >
+            <mat-label>Select an Package Type</mat-label>
+            <mat-select
+              required
+              formControlName="packageTypeControl"
+              disableRipple
+            >
+              <mat-option
+                *ngFor="let incoterms of packageType"
+                [value]="incoterms.id"
+              >
+                {{ incoterms.name }}
+              </mat-option>
+            </mat-select>
+            <mat-error
+              *ngIf="getFormItem('packageTypeControl').hasError('required')"
+            >
+              This field is required.
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field
+            appearance="fill"
+            [class.mat-form-field-invalid]="
+              getFormItem('incotermsControl').invalid &&
+              (getFormItem('incotermsControl').dirty ||
+                getFormItem('incotermsControl').touched)
+            "
+          >
+            <mat-label>Select an Incoterms</mat-label>
+            <mat-select
+              required
+              formControlName="incotermsControl"
+              disableRipple
+            >
+              <mat-option
+                *ngFor="let incoterms of incoterms"
+                [value]="incoterms.id"
+              >
+                {{ incoterms.name }}
+              </mat-option>
+            </mat-select>
+            <mat-error
+              *ngIf="getFormItem('incotermsControl').hasError('required')"
+            >
+              This field is required.
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field
+            appearance="fill"
+            [class.mat-form-field-invalid]="
+              getFormItem('movementTypeControl').invalid &&
+              (getFormItem('movementTypeControl').dirty ||
+                getFormItem('movementTypeControl').touched)
+            "
+          >
+            <mat-label>Select a Movement Type</mat-label>
+            <mat-select
+              required
+              formControlName="movementTypeControl"
+              disableRipple
+            >
+              <mat-option
+                *ngFor="let movementType of movementType"
+                [value]="movementType.id"
+              >
+                {{ movementType.name }}
+              </mat-option>
+            </mat-select>
+            <mat-error
+              *ngIf="getFormItem('movementTypeControl').hasError('required')"
+            >
+              This field is required.
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field
+            appearance="fill"
+            [class.mat-form-field-invalid]="
+              getFormItem('unitFirstControl').invalid &&
+              (getFormItem('unitFirstControl').dirty ||
+                getFormItem('unitFirstControl').touched)
+            "
+          >
+            <mat-label>Select a Unit First</mat-label>
+            <mat-select
+              required
+              formControlName="unitFirstControl"
+              disableRipple
+            >
+              <mat-option
+                *ngFor="let unitFirst of unitFirst"
+                [value]="unitFirst.id"
+              >
+                {{ unitFirst.name }}
+              </mat-option>
+            </mat-select>
+            <mat-error
+              *ngIf="getFormItem('unitFirstControl').hasError('required')"
+            >
+              This field is required.
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <mat-form-field
+            appearance="fill"
+            [class.mat-form-field-invalid]="
+              getFormItem('secondUnitControl').invalid &&
+              (getFormItem('secondUnitControl').dirty ||
+                getFormItem('secondUnitControl').touched)
+            "
+          >
+            <mat-label>Select a Second Unit</mat-label>
+            <mat-select
+              required
+              formControlName="secondUnitControl"
+              disableRipple
+            >
+              <mat-option
+                *ngFor="let secondUnit of secondUnit"
+                [value]="secondUnit.id"
+              >
+                {{ secondUnit.name }}
+              </mat-option>
+            </mat-select>
+
+            <mat-error
+              *ngIf="getFormItem('secondUnitControl').hasError('required')"
+            >
+              This field is required.
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field
+            appearance="fill"
+            [class.mat-form-field-invalid]="
+              getFormItem('currencyControl').invalid &&
+              (getFormItem('currencyControl').dirty ||
+                getFormItem('currencyControl').touched)
+            "
+          >
+            <mat-label>Select a Currency</mat-label>
+            <mat-select
+              required
+              formControlName="currencyControl"
+              disableRipple
+            >
+              <mat-option
+                *ngFor="let currency of currency"
+                [value]="currency.id"
+              >
+                {{ currency.name }}
+              </mat-option>
+            </mat-select>
+            <mat-error
+              *ngIf="getFormItem('currencyControl').hasError('required')"
+            >
+              This field is required.
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-card-content>
+
+    <mat-card-actions class="actionButton">
+      <button
+        style="margin-right: 25px"
+        mat-stroked-button
+        (click)="onSave()"
+        color="primary"
+      >
+        Save
+      </button>
+      <button mat-stroked-button (click)="onCancel()" color="warn">
+        Cancel
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

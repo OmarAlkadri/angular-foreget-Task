@@ -1,0 +1,62 @@
+<mat-toolbar color="primary">
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Foreget</span>
+  <span class="example-spacer"></span>
+
+  <button (click)="navigate('home/shipment-list')" mat-stroked-button>
+    shipment list
+  </button>
+  <button (click)="navigate('home/mode-list')" mat-stroked-button>
+    mode list
+  </button>
+  <button (click)="navigate('home/movementtype-list')" mat-stroked-button>
+    movementtype list
+  </button>
+  <button (click)="navigate('home/packagetype-list')" mat-stroked-button>
+    packagetype list
+  </button>
+  <button (click)="navigate('home/incoterms-list')" mat-stroked-button>
+    incoterm list
+  </button>
+  <button (click)="navigate('home/secondunit-list')" mat-stroked-button>
+    secondunit list
+  </button>
+  <button (click)="navigate('home/unitfirst-list')" mat-stroked-button>
+    unitfirst list
+  </button>
+  <button (click)="navigate('home/currency-list')" mat-stroked-button>
+    currency list
+  </button>
+
+  <button
+    (click)="navigate('home/add-new-user')"
+    mat-stroked-button
+    style="margin-left: 10px"
+  >
+    add user
+  </button>
+
+  <button
+    (click)="navigate('home/shipment-list')"
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with share icon"
+  >
+    <mat-icon>home</mat-icon>
+  </button>
+
+  <button
+    (click)="logout()"
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with share icon"
+  >
+    <mat-icon>exit_to_app</mat-icon>
+  </button>
+</mat-toolbar>
